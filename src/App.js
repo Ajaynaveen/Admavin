@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route, Routes, Link } from 'react-router-dom';
+import Box from './Box';
+import Hierchy from './Hierchy';
+import InfiniteScroll from './InfiniteScroll';
+import Game from './Game';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/box">box</Link>
+          </li>
+          <li>
+            <Link to="/hierchy">Hierchy</Link>
+          </li>
+          <li>
+            <Link to="/scroll">Scroll</Link>
+          </li>
+          <li>
+            <Link to="/game">Game</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route path="/box" element={<Box />} />
+        <Route path="/hierchy" element={<Hierchy />} />
+        <Route path="/scroll" element={<InfiniteScroll />} />
+        <Route path="/game" element={<Game />} />
+      </Routes>
     </div>
   );
 }
